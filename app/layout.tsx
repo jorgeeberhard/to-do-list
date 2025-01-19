@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { merriweather } from "./fonts";
 import "./globals.css";
 import Header from "@/app/ui/header";
-import Search from "@/app/ui/search";
 
 export const metadata: Metadata = {
   title: "To-Do List",
