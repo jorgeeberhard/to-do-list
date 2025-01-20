@@ -4,7 +4,7 @@ import { deleteTask } from "../lib/actions";
 export function Task({ task, id }: { task: string; id: string }) {
   const deleteTaskWithId = deleteTask.bind(null, id);
   return (
-    <div className="p-2" id={id}>
+    <div className="py-2 pr-2" id={id}>
       <input type="checkbox" className="mr-2" onChange={deleteTaskWithId} />
       <label>{task}</label>
     </div>
@@ -13,7 +13,6 @@ export function Task({ task, id }: { task: string; id: string }) {
 
 export async function TaskWrapper() {
   const tasks = await fetchTasks();
-  console.log(tasks);
 
   if (!tasks) {
     console.log("Task List dont exist");

@@ -15,9 +15,13 @@ export default function Layout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${merriweather.className} grid gap-4 grid-cols-3 p-10`}>
-        <Header title="To-do List"></Header>
-        {children}
+      <body
+        className={`${merriweather.className} flex justify-center items-center flex-col p-10`}
+      >
+        <div className="lg:w-2/3">
+          <Header title="To-do List"></Header>
+          {children}
+        </div>
       </body>
     </html>
   );
