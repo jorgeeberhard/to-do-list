@@ -5,7 +5,6 @@ import { createTask } from "@/app/lib/actions";
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const [data, action] = useActionState(createTask, undefined);
-  console.log(data);
 
   return (
     <form action={action}>

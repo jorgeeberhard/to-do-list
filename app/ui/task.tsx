@@ -1,4 +1,4 @@
-import { tasksList } from "../lib/definitions";
+import { tasksList } from "@/app/lib/definitions";
 
 export function Task({ task }: { task: string }) {
   return (
