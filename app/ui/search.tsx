@@ -1,12 +1,11 @@
 "use client";
 import { useActionState } from "react";
 import { CreateTask } from "@/app/ui/buttons";
-import { State } from "@/app/lib/actions";
 import { createTask } from "@/app/lib/actions";
 
 export default function Search({ placeholder }: { placeholder: string }) {
-  const initialState: State = { errors: undefined };
-  const [data, action, isPending] = useActionState(createTask, undefined);
+  const [data, action] = useActionState(createTask, undefined);
+  console.log(data);
 
   return (
     <form action={action}>
@@ -22,6 +21,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
             placeholder={placeholder}
           />
           <CreateTask />
+        </div>
+        <div id="task-error">
+          <p className="p-2 text-red-500">{data?.error}</p>
         </div>
       </div>
     </form>

@@ -3,4 +3,4 @@ export type TaskContents = {
   description: string;
 };
 
-export let tasksList: string[] = [];
+export const tasksList: string[] = [];
