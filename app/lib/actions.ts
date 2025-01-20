@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { sql } from "@vercel/postgres";
 
 export type State = {
@@ -27,7 +27,7 @@ export async function createTask(prevState: unknown, formData: FormData) {
     };
   }
 
-  revalidateTag("TaskWrapper");
+  revalidatePath("/");
   return;
 }
 
