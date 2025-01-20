@@ -22,7 +22,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
           <CreateTask />
         </div>
         <div id="task-error">
-          <p className="p-2 text-red-500">{data?.error}</p>
+          <p className="p-2">{data?.error}</p>
         </div>
       </div>
     </form>

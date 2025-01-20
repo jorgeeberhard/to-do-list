@@ -11,10 +11,12 @@ export function Task({ task }: { task: string }) {
 
 export function TaskWrapper() {
   if (!tasksList) {
+    console.log("Task List dont exist");
     return <p>No Tasks Avaliable</p>;
   }
 
   if (tasksList.length == 0) {
+    console.log("Task List have no Length");
     return <p>No Tasks Avaliable</p>;
   }
 

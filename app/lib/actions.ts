@@ -8,14 +8,16 @@ export type State = {
 };
 
 export async function createTask(prevState: unknown, formData: FormData) {
+  console.log(`Task List: ${tasksList}`);
+
   const taskDescription = formData.get("taskDescription") as string;
+  console.log(`Task Description: ${taskDescription}`);
+
   if (!taskDescription) {
     return { error: "Task Description is Required." };
   }
 
   tasksList.unshift(taskDescription);
-  console.log(`Task List: ${tasksList}`);
-  console.log(`Task Description: ${taskDescription}`);
   revalidateTag("TaskWrapper");
   return;
 }
