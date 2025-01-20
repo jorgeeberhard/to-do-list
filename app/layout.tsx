@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { merriweather } from "./fonts";
-import "./globals.css";
+import "@/app/globals.css";
 import Header from "@/app/ui/header";
 
 export const metadata: Metadata = {
   title: "To-Do List",
-  description: "A simple To-Do List App",
+  description: "A simple To-Do List",
 };
 
 export default function Layout({

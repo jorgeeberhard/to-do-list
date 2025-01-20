@@ -14,6 +14,8 @@ export async function createTask(prevState: unknown, formData: FormData) {
   }
 
   tasksList.unshift(taskDescription);
+  console.log(`Task List: ${tasksList}`);
+  console.log(`Task Description: ${taskDescription}`);
   revalidateTag("TaskWrapper");
   return;
 }
