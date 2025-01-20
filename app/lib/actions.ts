@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { sql } from "@vercel/postgres";
 
 export type State = {
@@ -37,7 +37,7 @@ export async function deleteTask(id: string) {
       DELETE FROM tasks WHERE id =  ${id}
     `;
 
-    revalidateTag("TaskWrapper");
+    revalidatePath("/");
   } catch (error) {
     console.error(error);
   }
