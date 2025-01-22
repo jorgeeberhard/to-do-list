@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { sql } from "@vercel/postgres";
+import sql from "@/infra/database";
 
 export type State = {
   errors?: string;

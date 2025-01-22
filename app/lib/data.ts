@@ -1,4 +1,4 @@
-import { sql } from "@vercel/postgres";
+import sql from "@/infra/database";
 
 export async function fetchTasks() {
   try {
@@ -7,7 +7,7 @@ export async function fetchTasks() {
       ORDER BY date DESC
     `;
 
-    return data.rows;
+    return data;
   } catch (error) {
     console.error("Database Error: ", error);
     throw new Error("Failed to fetch tasks data.");

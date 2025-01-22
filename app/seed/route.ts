@@ -1,4 +1,4 @@
-import { sql } from "@vercel/postgres";
+import sql from "@/infra/database";
 
 async function seedTasks() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
