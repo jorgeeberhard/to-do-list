@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { merriweather } from "./fonts";
+import { merriweather } from "@/app/fonts";
 import "@/app/globals.css";
 import Header from "@/app/ui/header";
 

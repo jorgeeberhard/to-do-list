@@ -4,7 +4,7 @@ import { TaskWrapper } from "@/app/ui/task";
 export default function Page() {
   return (
     <main className="flex flex-col">
-      <Search placeholder="Tarefa"></Search>
+      <Search placeholder="Task description"></Search>
       <div className="grid grid-rows-subgrid gap-4">
         <div className="row-start-2">
           <TaskWrapper />
