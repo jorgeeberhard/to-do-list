@@ -12,9 +12,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-br">
-      <body className={`${merriweather.className} `}>{children}</body>
-    </html>
-  );
+  return <div className={`${merriweather.className}`}>{children}</div>;
 }

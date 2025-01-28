@@ -1,6 +1,6 @@
 "use client";
 import { useActionState } from "react";
-import { CreateTask } from "@/app/ui/buttons";
+import { CreateTask } from "@/app/ui/home/buttons";
 import { createTask } from "@/app/lib/actions";
 
 export default function Search({ placeholder }: { placeholder: string }) {
@@ -11,7 +11,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
       <div className="col-start-2">
         <div className="flex">
           <label htmlFor="search" className="sr-only">
-            Search
+            Task Input
           </label>
           <input
             name="taskDescription"
