@@ -1,6 +1,6 @@
 "use client";
 import { useActionState } from "react";
-import { CreateTask } from "@/app/ui/home/buttons";
+import { CreateTask } from "@/app/ui/list/buttons";
 import { createTask } from "@/app/lib/actions";
 
 export default function Search({ placeholder }: { placeholder: string }) {

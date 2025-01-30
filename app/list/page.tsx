@@ -1,6 +1,6 @@
-import Search from "@/app/ui/home/search";
-import { TaskWrapper } from "@/app/ui/home/task";
-import Header from "@/app/ui/home/header";
+import Search from "@/app/ui/list/search";
+import { TaskWrapper } from "@/app/ui/list/task";
+import Header from "@/app/ui/header";
 
 export default function Page() {
   return (
