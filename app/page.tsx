@@ -1,16 +1,25 @@
-"use client";
+import Header from "@/app/ui/header";
+import { MdClose } from "react-icons/md";
+import Button from "@/app/ui/button";
 
 export default function Page() {
   return (
-    <main className="flex justify-center p-10">
-      <div className="flex flex-col justify-center p-10">
-        <h1>Login Page in Construction</h1>
-        <p>
-          For now, you can access the app at{" "}
-          <a className="text-blue-500 underline" href={`/list`}>
-            this link
-          </a>
-        </p>
+    <main className="flex justify-center py-10 px-2 md:py-10 md:px-10 ">
+      <div className="flex flex-col items-center w-screen">
+        <Header title="Welcome" />
+        <div className="w-2/3 md:w-1/3 bg-yellow-200">
+          <button className="p-2">
+            <MdClose size={25} />
+          </button>
+          <div className="flex justify-around bg-yellow-100 py-5">
+            <a href="/login">
+              <Button buttonName="Login" />
+            </a>
+            <a href="/login">
+              <Button buttonName="Sign in" />
+            </a>
+          </div>
+        </div>
       </div>
     </main>
   );
