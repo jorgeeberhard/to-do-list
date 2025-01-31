@@ -3,6 +3,7 @@
 import { MdClose } from "react-icons/md";
 import { roboto } from "@/app/fonts";
 import { redirect } from "next/navigation";
+import Button from "@/app/ui/button";
 
 export default function LoginForm() {
   function handleClose() {
@@ -31,12 +32,7 @@ export default function LoginForm() {
           />
         </div>
         <div className="flex justify-center">
-          <button
-            className="px-2 py-1 m-3 border border-blue-300 bg-blue-300 solid rounded-md"
-            type="submit"
-          >
-            Login
-          </button>
+          <Button buttonName="Login" type="submit" />
         </div>
       </form>
     </section>
