@@ -27,7 +27,7 @@ export async function createTask(prevState: unknown, formData: FormData) {
     };
   }
 
-  revalidatePath("/");
+  revalidatePath("/list");
   return;
 }
 
@@ -37,7 +37,7 @@ export async function deleteTask(id: string) {
       DELETE FROM tasks WHERE id =  ${id}
     `;
 
-    revalidatePath("/");
+    revalidatePath("/list");
   } catch (error) {
     console.error(error);
   }
