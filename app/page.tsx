@@ -1,6 +1,7 @@
 import Header from "@/app/ui/header";
 import { MdClose } from "react-icons/md";
 import Button from "@/app/ui/button";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -12,12 +13,12 @@ export default function Page() {
             <MdClose size={25} />
           </button>
           <div className="flex justify-around bg-yellow-100 py-5">
-            <a href="/login">
+            <Link href="/login">
               <Button buttonName="Login" />
-            </a>
-            <a href="/signin">
+            </Link>
+            <Link href="/signin">
               <Button buttonName="Sign in" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
