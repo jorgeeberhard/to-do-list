@@ -13,7 +13,7 @@ export const authConfig = {
         if (isLoggedIn) return true;
         return NextResponse.redirect(new URL("/", nextUrl));
       } else if (isLoggedIn) {
-        return true;
+        return NextResponse.redirect(new URL("/list", nextUrl));
       }
       return true;
     },
