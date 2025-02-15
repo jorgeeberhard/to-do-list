@@ -21,7 +21,7 @@ async function seedUser() {
     password TEXT NOT NULL
   );`;
 
-  const isertedUsers = await Promise.all(
+  const insertedUsers = await Promise.all(
     users.map(async (user) => {
       const hashedPassword = await bcrypt.hash(user.password, 10);
       return await sql`
@@ -31,8 +31,7 @@ async function seedUser() {
       `;
     })
   );
-
-  console.log("added users");
+  return insertedUsers;
 }
 
 export async function GET() {

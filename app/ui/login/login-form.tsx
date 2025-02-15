@@ -12,10 +12,7 @@ export default function LoginForm() {
     redirect("/");
   }
 
-  const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
-    undefined
-  );
+  const [data, formAction] = useActionState(authenticate, undefined);
 
   return (
     <section className={`${roboto.className} shadow-md bg-yellow-200`}>
@@ -46,6 +43,9 @@ export default function LoginForm() {
           <Button buttonName="Login" type="submit" />
         </div>
       </form>
+      <div>
+        <p>{data}</p>
+      </div>
     </section>
   );
 }
