@@ -16,7 +16,7 @@ export default function Page() {
             <Link href="/login">
               <Button buttonName="Login" />
             </Link>
-            <Link href="/signin">
+            <Link href="/register">
               <Button buttonName="Sign in" />
             </Link>
           </div>
