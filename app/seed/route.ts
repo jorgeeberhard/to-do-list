@@ -1,7 +1,6 @@
-import sql from "@/infra/database";
-import { User } from "@/app/lib/definitions";
-import { users } from "@/app/lib/placeholder-data";
 import bcrypt from "bcrypt";
+import sql from "@/infra/database";
+import { users } from "@/app/lib/placeholder-data";
 
 async function seedTasks() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -32,11 +31,14 @@ async function seedUser() {
       `;
     })
   );
+
+  console.log("added users");
 }
 
 export async function GET() {
   try {
     await seedTasks();
+    await seedUser();
 
     return Response.json({ message: "Database seeded sucessfully" });
   } catch (error) {

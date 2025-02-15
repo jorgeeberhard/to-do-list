@@ -1,4 +1,5 @@
 import type { NextAuthConfig } from "next-auth";
+import { NextResponse } from "next/server";
 
 export const authConfig = {
   pages: {
@@ -10,9 +11,9 @@ export const authConfig = {
       const isOnList = nextUrl.pathname.startsWith("/list");
       if (isOnList) {
         if (isLoggedIn) return true;
-        return false;
+        return NextResponse.redirect(new URL("/", nextUrl));
       } else if (isLoggedIn) {
-        return Response.redirect(new URL("/list", nextUrl));
+        return true;
       }
       return true;
     },

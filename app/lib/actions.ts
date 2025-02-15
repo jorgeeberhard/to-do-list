@@ -2,10 +2,37 @@
 
 import { revalidatePath } from "next/cache";
 import sql from "@/infra/database";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
+import { redirect } from "next/navigation";
 
 export type State = {
   errors?: string;
 };
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData
+) {
+  try {
+    await signIn("credentials", {
+      email: formData.get("email"),
+      password: formData.get("password"),
+      redirectTo: "/list",
+    });
+    redirect("/list");
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return "Invalid Credentials";
+        default:
+          return "Something went wrong";
+      }
+    }
+    throw error;
+  }
+}
 
 export async function createTask(prevState: unknown, formData: FormData) {
   const taskDescription = formData.get("taskDescription") as string;
