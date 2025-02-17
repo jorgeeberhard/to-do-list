@@ -10,5 +10,3 @@ export type TaskContents = {
 };
 
 export const tasksList: string[] = [];
-
-export type buttonTypes = "submit" | "reset" | "button" | undefined;
