@@ -13,11 +13,17 @@ export default function Page() {
             <MdClose size={25} />
           </button>
           <div className="flex justify-around bg-yellow-100 py-5">
-            <Link href="/login">
-              <Button buttonName="Login" />
+            <Link
+              href="/login"
+              className="px-3 py-2 m-3 bg-blue-300 rounded-md outline-offset-2 outline-blue-500 focus:outline hover:bg-blue-400 active:bg-blue-500"
+            >
+              Login
             </Link>
-            <Link href="/register">
-              <Button buttonName="Register" />
+            <Link
+              href="/register"
+              className="px-3 py-2 m-3 bg-blue-300 rounded-md outline-offset-2 outline-blue-500 focus:outline hover:bg-blue-400 active:bg-blue-500"
+            >
+              Register
             </Link>
           </div>
         </div>

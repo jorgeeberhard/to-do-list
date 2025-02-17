@@ -1,3 +1,5 @@
+import { merriweather } from "@/app/fonts";
+
 export default function Header({
   title,
   className,
@@ -6,7 +8,7 @@ export default function Header({
   className?: string;
 }) {
   return (
-    <div className={className ? className : undefined}>
+    <div className={`${merriweather.className} ${className}`}>
       <h1 className="text-3xl mb-3">{title}</h1>
     </div>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { merriweather } from "@/app/fonts";
+import { merriweather, roboto } from "@/app/fonts";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function Layout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${merriweather.className} `}>{children}</body>
+      <body className={`${roboto.className} `}>{children}</body>
     </html>
   );
 }
