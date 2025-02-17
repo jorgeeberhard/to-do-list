@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { merriweather, roboto } from "@/app/fonts";
+import { roboto } from "@/app/fonts";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {

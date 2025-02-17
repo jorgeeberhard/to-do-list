@@ -1,6 +1,5 @@
 import Header from "@/app/ui/header";
 import { MdClose } from "react-icons/md";
-import Button from "@/app/ui/button";
 import Link from "next/link";
 
 export default function Page() {
