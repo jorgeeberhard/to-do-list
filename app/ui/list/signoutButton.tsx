@@ -9,11 +9,9 @@ export default async function SignOut() {
         await signOut({ redirectTo: "/" });
       }}
     >
-      <Button
-        className="absolute top-3 right-3"
-        buttonName="Sign Out"
-        type="submit"
-      />
+      <Button className="absolute top-3 right-3" type="submit">
+        Sign Out
+      </Button>
     </form>
   );
 }

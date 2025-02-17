@@ -49,11 +49,13 @@ export default function RegisterForm() {
           />
         </div>
         <div className="flex justify-center">
-          <Button buttonName="Register" type="submit" />
+          <Button type="submit">
+            <p>Register</p>
+          </Button>
         </div>
       </form>
       <div>
-        <p>{data}</p>
+        <p className="p-3 text-red-500 font-bold">{data}</p>
       </div>
     </section>
   );

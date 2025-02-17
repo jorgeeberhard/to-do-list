@@ -40,7 +40,7 @@ export default function LoginForm() {
           />
         </div>
         <div className="flex justify-center">
-          <Button buttonName="Login" type="submit" />
+          <Button type="submit">Login</Button>
         </div>
       </form>
       <div>

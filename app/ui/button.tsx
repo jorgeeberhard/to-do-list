@@ -2,20 +2,20 @@ import { roboto } from "@/app/fonts";
 
 export default function Button({
   className,
-  buttonName,
   type,
+  children,
 }: {
   className?: string;
-  buttonName: string;
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex justify-center">
       <button
-        className={`${roboto.className} ${className} px-2 py-1 m-3 border border-blue-300 bg-blue-300 solid rounded-md`}
+        className={`${roboto.className} ${className} px-3 py-2 m-3 bg-blue-300 rounded-md outline-offset-2 outline-blue-500 focus:outline hover:bg-blue-400 active:bg-blue-500`}
         type={type}
       >
-        {buttonName}
+        {children}
       </button>
     </div>
   );

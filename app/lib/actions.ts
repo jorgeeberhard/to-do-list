@@ -20,9 +20,22 @@ export async function registerUser(
   try {
     const parsedCredentials = z
       .object({
-        email: z.string().email(),
-        password: z.string().min(8),
-        password_confirmation: z.string().min(8),
+        email: z
+          .string({
+            invalid_type_error: "Invalid Email",
+            required_error: "A Valid Email is Required",
+          })
+          .email(),
+        password: z.string().min(8, {
+          message: "Password Must Contain at Least 8 Characters",
+        }),
+        password_confirmation: z.string().min(8, {
+          message: "Password Confirmation Must Contain at Least 8 Characters",
+        }),
+      })
+      .refine((data) => data.password === data.password_confirmation, {
+        message: "Passwords don't Match",
+        path: ["password_confirmation"],
       })
       .safeParse({
         email: formData.get("email"),
@@ -31,7 +44,7 @@ export async function registerUser(
       });
 
     if (!parsedCredentials.success) {
-      return "Invalid Credentials";
+      return parsedCredentials.error.errors[0].message;
     }
 
     const { email, password } = parsedCredentials.data;
