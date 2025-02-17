@@ -5,10 +5,58 @@ import sql from "@/infra/database";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
+import bcrypt from "bcrypt";
+import { z } from "zod";
+import { uniqueEmailVerification } from "@/app/lib/utils";
 
 export type State = {
   errors?: string;
 };
+
+export async function registerUser(
+  prevState: string | undefined,
+  formData: FormData
+) {
+  try {
+    const parsedCredentials = z
+      .object({
+        email: z.string().email(),
+        password: z.string().min(8),
+        password_confirmation: z.string().min(8),
+      })
+      .safeParse({
+        email: formData.get("email"),
+        password: formData.get("password"),
+        password_confirmation: formData.get("password_confirmation"),
+      });
+
+    if (!parsedCredentials.success) {
+      return "Invalid Credentials";
+    }
+
+    const { email, password } = parsedCredentials.data;
+
+    const isEmailUnique = await uniqueEmailVerification(email);
+    console.log(isEmailUnique);
+
+    if (!isEmailUnique) {
+      return "Email Already Registered";
+    }
+
+    const encryptedPassword = await bcrypt.hash(password, 10);
+
+    await sql`
+      INSERT INTO users(email, password)
+      VALUES (${email}, ${encryptedPassword})
+    `;
+
+    console.log("Registration Successfull");
+  } catch (error) {
+    console.error("Error registering user: ", error);
+    return "Error With Registration";
+  }
+  redirect("/login");
+}
 
 export async function authenticate(
   prevState: string | undefined,

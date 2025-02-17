@@ -1,15 +1,12 @@
 import Header from "@/app/ui/header";
-import Button from "@/app/ui/button";
-import Link from "next/link";
-export default function Signin() {
+import RegisterForm from "@/app/ui/register/register-form";
+
+export default function Register() {
   return (
     <div className="flex justify-center p-10">
-      <div className="flex flex-col">
-        <Header className="flex justify-center" title="Sign in" />
-        <p>Page in development</p>
-        <Link href="/">
-          <Button buttonName="Go Back" />
-        </Link>
+      <div className="flex flex-col w-2/3 md:w-1/3 justify-center">
+        <Header className="flex justify-center" title="Register" />
+        <RegisterForm />
       </div>
     </div>
   );
