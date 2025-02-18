@@ -6,7 +6,9 @@ export type User = {
 
 export type TaskContents = {
   id: string;
+  user_id: string;
   description: string;
+  date: Date;
 };
 
 export const tasksList: string[] = [];

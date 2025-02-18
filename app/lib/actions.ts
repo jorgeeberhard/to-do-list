@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import sql from "@/infra/database";
-import { signIn } from "@/auth";
+import { auth, signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
@@ -102,11 +102,15 @@ export async function createTask(prevState: unknown, formData: FormData) {
     return { error: "Task Description is Required." };
   }
 
+  const session = await auth();
+
   const date = new Date().toISOString();
   try {
     await sql`
-    INSERT INTO tasks (description, date)
-    VALUES (${taskDescription}, ${date})
+    INSERT INTO tasks ( user_id, description, date)
+    VALUES (${
+      session?.user?.id ? session?.user?.id : ""
+    }, ${taskDescription}, ${date})
   `;
   } catch (error) {
     console.error(error);

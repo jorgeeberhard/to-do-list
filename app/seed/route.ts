@@ -7,6 +7,7 @@ async function seedTasks() {
   await sql`
     CREATE TABLE IF NOT EXISTS tasks (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    user_id UUID REFERENCES users(id),
     description TEXT NOT NULL,
     date TIMESTAMP NOT NULL
     );
@@ -15,7 +16,8 @@ async function seedTasks() {
 
 async function seedUser() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-  await sql`CREATE TABLE IF NOT EXISTS users (
+  await sql`
+    CREATE TABLE IF NOT EXISTS users (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
     email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL
@@ -36,8 +38,8 @@ async function seedUser() {
 
 export async function GET() {
   try {
-    await seedTasks();
     await seedUser();
+    await seedTasks();
 
     return Response.json({ message: "Database seeded sucessfully" });
   } catch (error) {
