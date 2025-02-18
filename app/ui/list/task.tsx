@@ -54,34 +54,4 @@ export function TaskWrapper({ session }: { session: Session }) {
       </>
     );
   }
-
-  // if (session) return <p>{session.user?.id}</p>;
-
-  // if ("isLoading") {
-  //   return (
-  //     <>
-  //       <p>Loading...</p>
-  //     </>
-  //   );
-  // }
-
-  // if (!tasks) {
-  //   console.log("Task List dont exist");
-  //   return <p>No Tasks Avaliable</p>;
-  // }
-
-  // if (tasks.length == 0) {
-  //   console.log("Task List have no Length");
-  //   return <p>No Tasks Avaliable</p>;
-  // }
-
-  // if (tasks.length > 0) {
-  //   return (
-  //     <>
-  //       {tasks.map((task) => (
-  //         <Task key={task.id} id={task.id} task={task.description} />
-  //       ))}
-  //     </>
-  //   );
-  // }
 }
