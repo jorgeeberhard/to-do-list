@@ -43,7 +43,7 @@ export function TaskWrapper({ session }: { session: Session }) {
   }, [session]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No Tasks</p>;
+  if (!data || data.length == 0) return <p>No Tasks Avaliable</p>;
 
   if (data.length > 0) {
     return (
